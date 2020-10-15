@@ -339,7 +339,7 @@ One way hash, we cannot track it back to original value
 5. They ask CA for Company 1's public key to decrypt
 
 ## Port mirroring
-Take a copy of the items and forward it to another physical port, commonly used with IDS(Intrusion detection system). Intrusion Prevention Systems also analyzes packets, but can also stop the packet from being delivered based on what kind of attacks it detects — helping stop the attack.
+Take a copy of the items and forward it to another physical port, commonly used with IDS(Intrusion detection system). Intrusion Prevention Systems also analyzes packets, but can also stop the packet from being delivered based on what kind of attacks it detects — helping stop the attack.  
 ![ids](https://i.imgur.com/7yo9gL5.png)
 
 ## Wifi 2.4GHz vs 5Ghz
