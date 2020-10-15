@@ -1,34 +1,33 @@
 ## Appendix
 Socket: Unique combination of ip+port
 
-![overhead](https://www.homenethowto.com/wp-content/uploads/overhead-1.jpg)
-1. What are the OSI levels
-APSTNDP
-Layer 1, Physical Layer - physical connection between devices, include cable, pinouts, voltages, network interface card
-Layer 2, Data link Layer - in charge of trasmitting to  the correct hose using MAC Address. Package bits/data from network layer into units called frames, tying cable card to wireless card. When it gets the packet, it will place an ARP request asking "who has the IP address?"
+![overhead](https://www.homenethowto.com/wp-content/uploads/overhead-1.jpg)  
+What are the OSI levels? - APSTNDP  
+1. Layer 1, Physical Layer - physical connection between devices, include cable, pinouts, voltages, network interface card  
+2. Layer 2, Data link Layer - in charge of trasmitting to  the correct hose using MAC Address. Package bits/data from network layer into units called frames, tying cable card to wireless card. When it gets the packet, it will place an ARP request asking "who has the IP address?"
   - error control: detects and retransmits damaged or lost frames.
   - flow control: coordinates that amount of data that can be sent before receiving acknowledgement.
   - has source mac and destination mac
   **Packet in Data Link layer is referred as Frame.**
-Layer 3, Network Layer/IP Layer - IP address, transfer logical address to physical, performs network routing(router)
+3. Layer 3, Network Layer/IP Layer - IP address, transfer logical address to physical, performs network routing(router)
   - Routing: determine which route is suitable from source to destination. 
   - Logical Addressing: The sender & receiver’s IP address are placed in the header by network layer
   - Fragmentation(MTU): Splitting of data packets that are too large to be transmitted on the network
   - has source IP and destination IP
   **Segment in Network layer is referred as Packet.**
-Layer 4 Transport Layer - Manage and Control layer, Transfer of data TCP/UDP, split communication into packages
+4. Layer 4 Transport Layer - Manage and Control layer, Transfer of data TCP/UDP, split communication into packages
   - error control: detects and retransmits damaged or lost frames.
   - flow control: coordinates that amount of data that can be sent before receiving acknowledgement.
   - Segmentation: process of dividing a data packet into smaller units for transmission over the network
   - adds Source and Destination port number in its header
   Transport layer is operated by the Operating System
-Layer 5 session layer - traffic control(establish, manage, terminate connections), coordinate communication
+5. Layer 5 session layer - traffic control(establish, manage, terminate connections), coordinate communication
   - establishment of connection, maintenance of sessions, authentication and also ensures security.
   - Synchronization 
-Layer 6 Presesntation layer - format data, encryption/decryption
+6. Layer 6 Presesntation layer - format data, encryption/decryption
   - data from the application layer is extracted here and manipulated as per the required format to transmit over the network.
   - Compression
-Layer 7 Application layer - network access, enables apps to access the net, SMTP, HTTP, FTP
+7. Layer 7 Application layer - network access, enables apps to access the net, SMTP, HTTP, FTP
   - Application – Browsers, Skype Messenger etc.
 
 
@@ -47,9 +46,9 @@ Layer 7 Application layer - network access, enables apps to access the net, SMTP
 Without a MAC address computers would not be able to identify themselves on a network before they gets an IP assigned
 
 ### Equipment
-Hub - receive data and send it out to everyone, relies on computer to reject
-Switch: Smart hub, Track port usage using MAC
-Repeater: making signal stronger/clean up signal
+Hub: receive data and send it out to everyone, relies on computer to reject  
+Switch: Smart hub, Track port usage using MAC  
+Repeater: making signal stronger/clean up signal  
 Router: move data across different networks, manage traffic flow, has public/private IP, DHCP server, built in firewalls
 
 
@@ -80,17 +79,17 @@ A suite of protocols for the internet, in order to communnicate, a shared langua
 
 ## Layer 3, Network Layer
 ### Unicast/Multicast/Broadcast
-Unicast: 1-1
-Multicast: 1-Many
-Broadcast: such as DHCP Servers, it uses 255.255.255.255
+Unicast: 1-1  
+Multicast: 1-Many  
+Broadcast: such as DHCP Servers, it uses 255.255.255.255  
 
 ### Classful addressing (IPv4)
-IPv4 address is divided into two parts:
-Network ID
-Host ID
-![classful addresing](https://i.imgur.com/E06iS0R.png)
-![Summary of classful addressing](https://i.imgur.com/b7A3HVu.png)
-Summary of classful addressing
+IPv4 address is divided into two parts:  
+Network ID  
+Host ID  
+![classful addresing](https://i.imgur.com/E06iS0R.png)  
+![Summary of classful addressing](https://i.imgur.com/b7A3HVu.png)  
+Summary of classful addressing  
 
 ### Fragmentation with MTU
 Example: For a data packet of 4000 bytes and MTU of 1500 bytes, we have actual data of 3980 bytes that is to be transmitted and 1480 bytes is the maximum data size that is permissible to be sent. So, there would be 3 fragments:  
@@ -118,11 +117,11 @@ Routing is process of establishing the routes that data packets must follow to r
 2. Non-Adaptive Algorithms - flooding
 
 ### Internet Control Message Protocol (ICMP)
-Since IP does not have a inbuilt mechanism for sending error and control messages. It depends on Internet Control Message Protocol(ICMP) to provide an error control.
-![icmp](https://i.imgur.com/Ikk783T.png)
+Since IP does not have a inbuilt mechanism for sending error and control messages. It depends on Internet Control Message Protocol(ICMP) to provide an error control.  
+![icmp](https://i.imgur.com/Ikk783T.png)  
 ICMP will take source IP from the discarded packet and informs to source by sending source quench message.  
-Then source will reduce the speed of transmission so that router will free for congestion.
-![far-icmp](https://i.imgur.com/biIMoz8.png)
+Then source will reduce the speed of transmission so that router will free for congestion.  
+![far-icmp](https://i.imgur.com/biIMoz8.png)  
 When the congestion router is far away from the source the ICMP will send hop by hop source quench message so that every router will reduce the speed of transmission.
 
 Other problems sent by ICMP including: Time exceeded message, Destination un-reachable
@@ -135,24 +134,24 @@ A state occuring in the network layer when the message traffic is so heavy it sl
 2. If delay increases, retransmission occurs, making situation worse.
 
 Congestion Control Algorithms include:
-1. **Leaky Bucket Algorithm** - no matter the burst of input, the output flows at a constant rate, implemented using FIFO queue
+**Leaky Bucket Algorithm** - no matter the burst of input, the output flows at a constant rate, implemented using FIFO queue
   1. When host wants to send packet, packet is thrown into the bucket.
   2. The bucket leaks at a constant rate, meaning the network interface transmits packets at a constant rate.
   3. Bursty traffic is converted to a uniform traffic by the leaky bucket.
-  4. In practice the bucket is a finite queue that outputs at a finite rate.
-![leaky bucket](https://i.imgur.com/uGuKpdw.png)
+  4. In practice the bucket is a finite queue that outputs at a finite rate.  
+![leaky bucket](https://i.imgur.com/uGuKpdw.png)  
 
 Algorithm: The following is an algorithm for variable-length packets:  
-1. Initialize a counter to n at the tick of the clock.
-2. If n is greater than the size of the packet, send the packet and decrement the counter by the packet size. Repeat this step until n is smaller than the packet size.
-3. Reset the counter and go to step 1.
+  1. Initialize a counter to n at the tick of the clock.
+  2. If n is greater than the size of the packet, send the packet and decrement the counter by the packet size. Repeat this step until n is smaller than the packet size.
+  3. Reset the counter and go to step 1.  
 ![leaky algo](https://i.imgur.com/RffFfo2.png)
 
-2. **Token bucket Algorithm** - a token is generated/regenerated at a certain rate, each transmission requires one token
+**Token bucket Algorithm** - a token is generated/regenerated at a certain rate, each transmission requires one token
   1. In regular intervals tokens are thrown into the bucket. ƒ
   2. The bucket has a maximum capacity. ƒ
   3. If there is a ready packet, a token is removed from the bucket, and the packet is sent.
-  4. If there is no token in the bucket, the packet cannot be sent.
+  4. If there is no token in the bucket, the packet cannot be sent.  
 ![token bucket](https://i.imgur.com/XGqwRyG.png)
 
 
