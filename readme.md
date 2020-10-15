@@ -339,7 +339,7 @@ One way hash, we cannot track it back to original value
 5. They ask CA for Company 1's public key to decrypt
 
 ## Port mirroring
-Take a copy of the items and forward it to another physical port, commonly used with IDS(Intrusion detection system). Intrusion Prevention Systems also analyzes packets, but can also stop the packet from being delivered based on what kind of attacks it detects — helping stop the attack.  
+Take a copy of the items and forward it to another physical port, commonly used with **IDS(Intrusion detection system)**. **Intrusion Prevention Systems** also analyzes packets, but can also stop the packet from being delivered based on what kind of attacks it detects — helping stop the attack.  
 ![ids](https://i.imgur.com/7yo9gL5.png)
 
 ## Wifi 2.4GHz vs 5Ghz
@@ -351,8 +351,7 @@ To distribute load between different servers
 Algorithms:
 1. Round robin - distribute equaly for each server
 2. Least Time Response - LB will send out ping to each server, first server to reply will be served the request
-3. weighted round robin - each server is given a different weigh of messages
-3. Consistent Hash - imagine on a circle, the request will be mapped to a point. going clockwise, the first server that it hits will serve the request.
+3. Weighted round robin - each server is given a different weigh of messages
 3. Consistent Hash - imagine on a circle, the request will be mapped to a point. going clockwise, the first server that it hits will serve the request.
 
-{read textbook chapter 3, 8.3-8.6
+read textbook chapter 3, 8.3-8.6
