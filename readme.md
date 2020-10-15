@@ -238,15 +238,15 @@ SSL does not mandate that Alice and Bob use a specific symmetric key algorithm, 
 4. Time Wait Timer - used during termination. After a connection close, there may be still be datagrams coming through. The quiet timer is intended to prevent the just-closed port from reopening again quickly and receiving these last datagrams.  
 
 ### TCP Flags
-SYN: Synchronization
-ACK: Acknowledgement
-FIN: Finish
-RST: Reset, abruptly tells the other that you want to stop communication and discard all data
-PSH: Sends the packet to the network layer as soon as you received it instead of buffering it(集运)
-URG: priority queue
+SYN: Synchronization  
+ACK: Acknowledgement  
+FIN: Finish  
+RST: Reset, abruptly tells the other that you want to stop communication and discard all data  
+PSH: Sends the packet to the network layer as soon as you received it instead of buffering it(集运)  
+URG: priority queue  
 
 ### User Datagram Protocols(UDP)
-![udp(https://media.geeksforgeeks.org/wp-content/uploads/UDP-header.png)
+![udp](https://media.geeksforgeeks.org/wp-content/uploads/UDP-header.png)  
 Source Port : Source Port is 2 Byte long field used to identify port number of source.  
 Destination Port : It is 2 Byte long field, used to identify the port of destined packet.  
 Length : Length is the length of UDP including header and the data. It is 16-bits field.  
@@ -255,21 +255,22 @@ Checksum : Checksum is 2 Bytes long field.
 Does not verify connection, no three-way handhsake, not limited to 1-1. When we still can make sense of the data. 8 bytes header and all body has different sizes. Used such as streaming video, when you want to keep it as fast as possible without caring about the quality
 
 ### Ports
-ports allow us to have multiple apps using the network connection, communicate over TCP/UDP
-FTP:21 TCP - File Transfer Protocol, insecure not encrypted
-SFTP:22 TCP - secure version of FTP, encrypted with SSH
-SMTP:25 TCP - simple mail transfer protocol
-POP3:110 TCP - post office protocol 3, client download from server
-HTTP:80 TCP - Hyper Text Transfer Protocol, web browsers, all content is in clear text
-HTTPS:443 TCP - secure version of HTTP, content is encrypted, certificate between user and server is signed
+ports allow us to have multiple apps using the network connection, communicate over TCP/UDP  
+FTP:21 TCP - File Transfer Protocol, insecure not encrypted  
+SFTP:22 TCP - secure version of FTP, encrypted with SSH  
+SMTP:25 TCP - simple mail transfer protocol  
+POP3:110 TCP - post office protocol 3, client download from server  
+HTTP:80 TCP - Hyper Text Transfer Protocol, web browsers, all content is in clear text  
+HTTPS:443 TCP - secure version of HTTP, content is encrypted, certificate between user and server is signed  
 
 ### Internet Protocol(IP)
-Is used when it's outside of our network. ![protocol overview](https://i.imgur.com/9sKyML4.png)
-Protocols:
-ARP(Layer 2): Address Resolution Protocol - Map IP to MAC Addresses
-TCP/UDP(Layer 4): Controls protocol
-DNS(Layer 5): resolve domain name into IP address
-DHCP(Layer 3): Server protocols that hands out IP
+Is used when it's outside of our network.  
+![protocol overview](https://i.imgur.com/9sKyML4.png)  
+Protocols:  
+ARP(Layer 2): Address Resolution Protocol - Map IP to MAC Addresses  
+TCP/UDP(Layer 4): Controls protocol  
+DNS(Layer 5): resolve domain name into IP address  
+DHCP(Layer 3): Server protocols that hands out IP  
 
 ## Layer 7, Application Layer
 ### Domain Name Service(DNS)
@@ -277,6 +278,10 @@ It resolved fully qualified domain name to IP, easier for humans to remember nam
 1. A computer will look in it's cache file, then host file for a request.
 2. If neither is found, it will send a DNS request to the router, the router will then query the Local DNS Server.
 3. If neither is found, the local DNS server will query the external DNS server.
+  - as example www.apple.com
+  - resolver will send to root server and cache the response of TLD domain for root server (<a>.root-servers.net) to find .com TLD(Top Level Domain) server
+  - root server will pass them to .com TLD server
+  - .com TLD server will pass them to authorative nameserver ns1.apple.com
 4. External DNS will return with the correct IP and location.
 5. Local DNS will cache it and return back to client.
 6. Client will then make a request directly though router with the information.
