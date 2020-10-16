@@ -201,10 +201,10 @@ When we send data, we push data as a stream, 20 Bytes header and 80 Bytes dynami
 ### TCP Connection Established
 Three way handshake is involved
 ![3 way handshake connection](https://www.mdpi.com/applsci/applsci-06-00358/article_deploy/html/images/applsci-06-00358-g001.png)
-Alice -SYN-> Bob    SYNchronize with my Initial Sequence Number of X
-Alice <-ACK- Bob    I received your syn, I ACKnowledge that I am ready for [X+1]
-Alice <-SYN- Bob    SYNchronize with my Initial Sequence Number of Y
-Alice -ACK-> Bob    I received your syn, I ACKnowledge that I am ready for [Y+1]
+Alice -SYN-> Bob    SYNchronize with my Initial Sequence Number of X  
+Alice <-ACK- Bob    I received your syn, I ACKnowledge that I am ready for [X+1]  
+Alice <-SYN- Bob    SYNchronize with my Initial Sequence Number of Y  
+Alice -ACK-> Bob    I received your syn, I ACKnowledge that I am ready for [Y+1]  
 
 ### TCP Connection Termination
 ![3way termination](https://media.geeksforgeeks.org/wp-content/uploads/CN.png)
