@@ -219,6 +219,9 @@ Alice <-FIN- Bob
 Alice -ACK-> Bob    
 
 ### SSL Handshake
+![image](https://user-images.githubusercontent.com/8999633/115115591-e8ebae00-9fc7-11eb-9997-0c44ad48e85b.png)
+Image from Grpc SSL Udemy lecture for SSL Encryption. Bottom explanation could be an even more detail SSL Authentication.  
+
 SSL does not mandate that Alice and Bob use a specific symmetric key algorithm 对称加密算法, a specific 公开密钥密码学public-key algorithm, or a specific MAC. Instead, SSL allows Alice and Bob to agree on the cryptographic algorithms at the beginning of the SSL session, during the handshake phase. Additionally, during the handshake phase, Alice and Bob send nonces to each other, which are used in the creation of the B session keys (E , M , E , and M ). The steps of the real SSL handshake are as follows:
 1. The client sends a list of cryptographic algorithms it supports, along with a client nonce.
 2. From the list, the server chooses a symmetric algorithm (for example, AES), a public key algorithm (for example, RSA with a specific key length), and a MAC algorithm. It sends back to the client its choices, as well as a **certificate** and a server **nonce**.
